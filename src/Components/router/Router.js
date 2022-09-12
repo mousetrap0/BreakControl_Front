@@ -10,7 +10,10 @@ import BbsAnswer from "../bbs/BbsAnswer";
 import Join from "../member/Join";
 import Login from "../member/Login";
 import Logout from "../member/Logout";
-import Rate from "../rate/rate";
+import RateWrite from "../rate/RateWrite";
+import RateKt from "../rate/RateKt";
+import RateSkb from "../rate/RateSkb";
+import RateKtsat from "../rate/RateKtsat";
 
 function Router() {
     return (
@@ -27,7 +30,10 @@ function Router() {
             <Route path="/join" element={<Join />}></Route>
             <Route path="/logout" element={<Logout />}></Route>
 
-            <Route path="/rate" element={<Rate />}></Route>
+            <Route path="/ratewrite" element={<RateWrite />}></Route>
+            <Route path="/ratekt" element={<RateKt />}></Route>
+            <Route path="/rateskb" element={<RateSkb />}></Route>
+            <Route path="/ratektsat" element={<RateKtsat />}></Route>
         </Routes>
     );
 }

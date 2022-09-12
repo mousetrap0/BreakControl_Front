@@ -31,7 +31,8 @@ function Nav() {
                                 aria-haspopup="true"
                                 aria-expanded="false"
                             >
-                                <i class="fas fa-clipboard-list"></i> 게시판
+                                <i className="fas fa-clipboard-list"></i>
+                                장애게시판
                             </div>
 
                             <div
@@ -46,10 +47,35 @@ function Nav() {
                                 </Link>
                             </div>
                         </li>
-                        <li className="nav-item">
-                            <Link className="nav-link" to="/rate">
+                        <li className="nav-item dropdown">
+                            <div
+                                className="nav-link dropdown-toggle"
+                                id="navbarDropdown"
+                                role="button"
+                                data-toggle="dropdown"
+                                aria-haspopup="true"
+                                aria-expanded="false"
+                            >
                                 <i className="fas fa-file-signature"></i> 지표
-                            </Link>
+                            </div>
+
+                            <div
+                                className="dropdown-menu"
+                                aria-labelledby="navbarDropdown"
+                            >
+                                <Link className="dropdown-item" to="/ratewrite">
+                                    지표작성
+                                </Link>
+                                <Link className="dropdown-item" to="/ratekt">
+                                    KT
+                                </Link>
+                                <Link className="dropdown-item" to="/rateskb">
+                                    SKB
+                                </Link>
+                                <Link className="dropdown-item" to="/ratektsat">
+                                    KTsat
+                                </Link>
+                            </div>
                         </li>
                     </ul>
                     <ul className="navbar-nav ml-auto">
