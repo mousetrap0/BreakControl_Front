@@ -112,12 +112,13 @@ function BbsList() {
                 <thead>
                     <tr>
                         <th className="col-1">번호</th>
+                        <th className="col-1">OUT</th>
                         <th className="col-1">시설명</th>
-                        <th className="col-1">장애발생일시</th>
-                        <th className="col-1">장애복구일시</th>
-                        <th className="col-1">장애장치명</th>
-                        <th className="col-1">장애발견상황</th>
-                        <th className="col-2">장애내용 및 주요원인</th>
+                        <th className="col-1">발생일시</th>
+                        <th className="col-1">복구일시</th>
+                        <th className="col-1">장치명</th>
+                        <th className="col-1">발견상황</th>
+                        <th className="col-4">장애내용 및 주요원인</th>
                         <th className="col-1">작성자</th>
                     </tr>
                 </thead>
@@ -159,6 +160,7 @@ function TableRow(props) {
             {bbs.del == 0 ? (
                 // 삭제되지 않은 게시글
                 <>
+                    <td>{bbs.breaktime}</td>
                     <td>
                         <Arrow depth={bbs.depth}></Arrow> &nbsp;{" "}
                         {/* 답글 화살표 */}
