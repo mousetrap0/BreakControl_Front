@@ -119,7 +119,7 @@ const Chart = () => {
                         <YAxis />
                         <Tooltip />
                         <Legend />
-                        <Bar dataKey="pv" fill="#8884d8" />
+                        <Bar dataKey="pv" fill="#BC8F8F	" />
                     </BarChart>
                 </div>
             </div>

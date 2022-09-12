@@ -171,12 +171,12 @@ function TableRow(props) {
                             {/* 게시글 제목 */}
                         </Link>
                     </td>
+                    <td>{bbs.breaktime}</td>
+                    <td>{bbs.recoverytime}</td>
+                    <td>{bbs.facilityground}</td>
+                    <td>{bbs.content}</td>
                     <td>{bbs.id}</td>
-                    <td>{bbs.id}</td>
-                    <td>{bbs.id}</td>
-                    <td>{bbs.id}</td>
-                    <td>{bbs.id}</td>
-                    <td>{bbs.id}</td>
+                    <td>{bbs.title}</td>
                 </>
             ) : (
                 // 삭제된 게시글
