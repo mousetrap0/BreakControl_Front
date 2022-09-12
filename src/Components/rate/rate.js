@@ -105,7 +105,7 @@ const Rate = () => {
                     </tr>
 
                     <tr>
-                        <th className="table-primary">시설명</th>
+                        <th className="table-primary">회선공사 사전 미공지</th>
                         <td>
                             <input
                                 type="text"
