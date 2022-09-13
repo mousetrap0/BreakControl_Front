@@ -12,7 +12,7 @@ function Footer() {
             </ul>
 
             <p>
-              <small>Copyright &copy;Seong Bo Jung &Jung Uk Park </small>
+              <small>Copyright &copy;Seong Bo Jung & Jung Uk Park </small>
             </p>
           </div>
         </footer>
