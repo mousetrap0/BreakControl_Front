@@ -31,7 +31,7 @@ function NwBreakList() {
 				console.log("[NwBreakList.js] useEffect() success :D");
 				console.log(resp.data);
 
-				setNwBreakList(resp.data.nwbreakList);
+				setNwBreakList(resp.data.nwBreakList);
 				setTotalCnt(resp.data.pageCnt);
 			})
 			.catch((err) => {
@@ -89,13 +89,19 @@ function NwBreakList() {
 				<thead>
 					<tr>
 						<th className="col-1">Break ID</th>
-						<th className="col-8">Line ID</th>
-						<th className="col-3">Break Date</th>
+						<th className="col-1">Line ID</th>
+						<th className="col-1">시설 위치</th>
+						<th className="col-1">시설명</th>
+						<th className="col-1">Break 시간</th>
+						<th className="col-1">해소 시간</th>
+						<th className="col-1">Break 담당자</th>
+						<th className="col-1">Break 원인</th>
+						<th className="col-1">작성자</th>
 					</tr>
 				</thead>
 
 				<tbody>
-					{
+				{
 						nwBreakList.map(function (nwbreak, idx) {
 							return (
 								<TableRow obj={nwbreak} key={idx} cnt={idx + 1} />
@@ -126,41 +132,26 @@ function NwBreakList() {
 function TableRow(props) {
 	const nwbreak = props.obj;
 
-	return (
-			<tr>
+	return (	
+	<tr>
 				
-						<td >
-								<Link to={{ pathname: `/nwbreakdetail/${nwbreak.breakId}` }}> { /* 게시글 상세 링크 */}
-									<span className="underline bbs-title" >{nwbreak.breakId} </span> { /* 게시글 제목 */}
-								</Link>
-						</td>
+				
+				{
+					<>
+						<td>{nwbreak.breakId} </td>
 						<td>{nwbreak.lineId}</td>
-						<td>{nwbreak.breakDate}</td>
+						<td>{nwbreak.facilityGround}</td>
+						<td>{nwbreak.facilityName}</td>
+						<td>{nwbreak.recoveryTime}</td>
+						<td>{nwbreak.breakManager}</td>
+						<td>{nwbreak.breakReason}</td>
+						<td>{nwbreak.writer}</td>
 					
+					</>	
+				}
 				
-			</tr>
-		
-	);
+			
+	</tr>
+		);
 }
-
-const tap = "\u00A0\u00A0\u00A0\u00A0";
-function Arrow( props ) {
-	const depth = props.depth;
-
-	if (depth === 0) {
-		return null;
-	}
-
-	const taps = [];
-	for(let i = 0; i < depth; i++) {
-		taps.push(tap);
-	}
-
-	return (
-		<>
-			{taps} <i className="fas fa-long-arrow-alt-right"></i>
-		</> 
-	 );
-}
-
 export default NwBreakList;
