@@ -45,6 +45,19 @@ function Nav() {
 							</div>
 						</li>
 
+						{/* 선번장 게시판 */}
+						<li className="nav-item dropdown">
+
+							<div className="nav-link dropdown-toggle" id="navbarDropdown"
+								role="button" data-toggle="dropdown" aria-haspopup="true"
+								aria-expanded="false">선번장</div>
+
+							<div className="dropdown-menu" aria-labelledby="navbarDropdown">
+								<Link className="dropdown-item" to="/linelist">선번장 목록</Link>
+								
+							</div>
+						</li>
+
 					</ul>
 					<ul className="navbar-nav ml-auto">
 

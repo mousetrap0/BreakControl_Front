@@ -12,6 +12,7 @@ import NwBreakWrite from "../nwbreak/NwbreakWrite"
 import NwBreakDetail from "../nwbreak/NwBreakDetail"
 import NwBreakUpdate from "../nwbreak/NwBreakUpdate"
 import NwBreakAnswer from "../nwbreak/NwBreakAnswer"
+import LineList from "../line/LineList"
 import Join from "../member/Join"
 import Login from "../member/Login"
 import Logout from "../member/Logout"
@@ -34,6 +35,8 @@ function Router() {
 				<Route path="/nwbreakdetail/:seq" element={<NwBreakDetail />}></Route>
 				<Route path="/nwbreakupdate" element={<NwBreakUpdate />}></Route>
 				<Route path="/nwbreakanswer/:parentSeq" element={<NwBreakAnswer />}></Route>
+
+				<Route path="/linelist" element={<LineList />}></Route>
 
 				<Route path="/login" element={<Login />}></Route>
 				<Route path="/join" element={<Join />}></Route>
