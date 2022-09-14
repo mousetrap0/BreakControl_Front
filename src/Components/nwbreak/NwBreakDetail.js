@@ -9,7 +9,7 @@ import { AuthContext } from "../context/AuthProvider";
 function NwBreakDetail() {
     const { auth, setAuth } = useContext(AuthContext);
 
-    const [nwbreak, setNwBreak] = useState({});
+    const [nwBreak, setNwBreak] = useState({});
     const { seq } = useParams(); // 파라미터 가져오기
 
     const navigate = useNavigate();
@@ -23,7 +23,7 @@ function NwBreakDetail() {
                 console.log("[NwBreakDetail.js] getNwBreakDetail() success :D");
                 console.log(resp.data);
 
-                setNwBreak(resp.data.bbs);
+                setNwBreak(resp.data.nwBreak);
             })
             .catch((err) => {
                 console.log("[NwBreakDetail.js] getNwBreakDetail() error :<");
@@ -54,15 +54,14 @@ function NwBreakDetail() {
     }, []);
 
     const updateNwBreak = {
-        seq: nwbreak.seq,
-        id: nwbreak.id,
-        title: nwbreak.title,
-        content: nwbreak.content,
+        breakId: nwBreak.breakId,
+        lineId: nwBreak.lineId,
+        breakReason: nwBreak.breakReason,
+        breakTime: nwBreak.breakTime,
     };
 
     const parentNwBreak = {
-        id: nwbreak.id,
-        title: nwbreak.title,
+        breakId: nwBreak.breakId,
     };
 
     return (
@@ -70,7 +69,7 @@ function NwBreakDetail() {
             <div className="my-3 d-flex justify-content-end">
                 <Link
                     className="btn btn-outline-secondary"
-                    to={{ pathname: `/nwbreakanswer/${nwbreak.seq}` }}
+                    to={{ pathname: `/nwbreakanswer/${nwBreak.breakId}` }}
                     state={{ parentNwBreak: parentNwBreak }}
                 >
                     <i className="fas fa-pen"></i> 답글쓰기
@@ -78,12 +77,12 @@ function NwBreakDetail() {
                 &nbsp;
                 {
                     /* 자신이 작성한 게시글인 경우에만 수정 삭제 가능 */
-                    localStorage.getItem("id") == nwbreak.id ? (
+                    localStorage.getItem("id") === nwBreak.writer ? (
                         <>
                             <Link
                                 className="btn btn-outline-secondary"
                                 to="/nwbreakupdate"
-                                state={{ nwbreak: updateNwBreak }}
+                                state={{ nwBreak: updateNwBreak }}
                             >
                                 <i className="fas fa-edit"></i> 수정
                             </Link>{" "}
@@ -104,35 +103,35 @@ function NwBreakDetail() {
                     <tr>
                         <th className="col-3">작성자</th>
                         <td>
-                            <span>{nwbreak.id}</span>
+                            <span>{nwBreak.writer}</span>
                         </td>
                     </tr>
 
                     <tr>
-                        <th>제목</th>
+                        <th>Break Id</th>
                         <td>
-                            <span>{nwbreak.title}</span>
+                            <span>{nwBreak.breakId}</span>
                         </td>
                     </tr>
 
                     <tr>
-                        <th>작성일</th>
+                        <th>Break 발생일</th>
                         <td>
-                            <span>{nwbreak.createdAt}</span>
+                            <span>{nwBreak.breakTime}</span>
                         </td>
                     </tr>
 
                     <tr>
-                        <th>조회수</th>
+                        <th>Recovery 시간</th>
                         <td>
-                            <span>{nwbreak.readCount}</span>
+                            <span>{nwBreak.recoveryTime}</span>
                         </td>
                     </tr>
 
                     <tr>
-                        <th>내용</th>
+                        <th>원인</th>
                         <td>
-                            <div>{nwbreak.content}</div>
+                            <div>{nwBreak.breakReason}</div>
                         </td>
                     </tr>
                 </tbody>
@@ -148,11 +147,11 @@ function NwBreakDetail() {
 
             {/* 댓글 작성 컴포넌트 */}
             {auth ? ( // 로그인한 사용자만 댓글 작성 가능
-                <CommentWrite seq={seq} />
+                <CommentWrite breakId={seq} />
             ) : null}
 
             {/* 댓글 리스트 컴포넌트 */}
-            <CommentList seq={seq} />
+            <CommentList breakId={seq} />
         </div>
     );
 }

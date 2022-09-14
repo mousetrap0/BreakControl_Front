@@ -111,14 +111,12 @@ function NwBreakList() {
                 <thead>
                     <tr>
                         <th className="col-1">Break ID</th>
-                        <th className="col-1">Line ID</th>
+                        <th className="col-2">Line ID</th>
                         <th className="col-1">시설 위치</th>
                         <th className="col-1">시설명</th>
-                        <th className="col-1">Break 시간</th>
-                        <th className="col-1">해소 시간</th>
-                        <th className="col-1">Break 담당자</th>
-                        <th className="col-1">Break 원인</th>
-                        <th className="col-1">작성자</th>
+                        <th className="col-2">Break 시간</th>
+                        <th className="col-2">해소 시간</th>
+                        <th className="col-1">담당자</th>
                     </tr>
                 </thead>
 
@@ -159,15 +157,27 @@ function TableRow(props) {
         <tr>
             {
                 <>
-                    <td>{nwbreak.breakId} </td>
+                    <td>
+                        <Link
+                            to={{
+                                pathname: `/nwbreakdetail/${nwbreak.breakId}`,
+                            }}
+                        >
+                            {" "}
+                            {/* 게시글 상세 링크 */}
+                            <span className="underline bbs-title">
+                                {nwbreak.breakId}{" "}
+                            </span>{" "}
+                            {/* 게시글 제목 */}
+                        </Link>
+                    </td>
+
                     <td>{nwbreak.lineId}</td>
                     <td>{nwbreak.facilityGround}</td>
                     <td>{nwbreak.facilityName}</td>
                     <td>{nwbreak.breakTime}</td>
                     <td>{nwbreak.recoveryTime}</td>
                     <td>{nwbreak.breakManager}</td>
-                    <td>{nwbreak.breakReason}</td>
-                    <td>{nwbreak.writer}</td>
                 </>
             }
         </tr>

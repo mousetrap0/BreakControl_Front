@@ -13,10 +13,17 @@ function Footer() {
                     </li>
                 </ul>
 
+<<<<<<< HEAD
                 <p>
                     <small>Copyright &copy;Seong Bo Jung & Jung Uk Park </small>
                 </p>
             </div>
+=======
+            <p>
+              <small>Copyright &copy;Seong Bo Jung & Jung Uk Park </small>
+            </p>
+          </div>
+>>>>>>> 7bf38e1d8cae11c6a0e730ea02bb7189dd975c80
         </footer>
     );
 }
