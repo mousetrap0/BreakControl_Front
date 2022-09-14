@@ -11,10 +11,9 @@ const NwBreakWrite = () => {
 
     const navigate = useNavigate();
 
-    const [title, setTitle] = useState("");
-    const [content, setContent] = useState("");
+    /*     const [title, setTitle] = useState("");
+    const [content, setContent] = useState(""); */
 
-    const [breakId, setBreakId] = useState("");
     const [lineId, setLineId] = useState("");
     const [facilityGround, setFacilityGround] = useState("");
     const [facilityName, setFacilityName] = useState("");
@@ -24,17 +23,13 @@ const NwBreakWrite = () => {
     const [breakReason, setBreakReason] = useState("");
     const [writer, setWriter] = useState("");
 
-    const changeTitle = (event) => {
+    /*     const changeTitle = (event) => {
         setTitle(event.target.value);
     };
 
     const changeContent = (event) => {
         setContent(event.target.value);
-    };
-
-    const changeBreakid = (event) => {
-        setBreakId(event.target.value);
-    };
+    }; */
 
     const changeLineid = (event) => {
         setLineId(event.target.value);
@@ -82,7 +77,7 @@ const NwBreakWrite = () => {
             writer: writer,
         };
         console.log(req);
-        /* 
+
         await axios
             .post("http://localhost:3000/nwbreak", req, { headers: headers })
             .then((resp) => {
@@ -95,7 +90,7 @@ const NwBreakWrite = () => {
             .catch((err) => {
                 console.log("[NwBreakWrite.js] createNwBreak() error :<");
                 console.log(err);
-            }); */
+            });
     };
 
     useEffect(() => {
