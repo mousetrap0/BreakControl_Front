@@ -14,56 +14,13 @@ const Chart = () => {
     const [selVal, setSelVal] = useState();
     const [chartVal, setChartVal] = useState([]);
 
-    const data = [
-        {
-            name: "Page A",
-            uv: 4000,
-            pv: 2400,
-            amt: 2400,
-        },
-        {
-            name: "Page B",
-            uv: 3000,
-            pv: 1398,
-            amt: 2210,
-        },
-        {
-            name: "Page C",
-            uv: 2000,
-            pv: 9800,
-            amt: 2290,
-        },
-        {
-            name: "Page D",
-            uv: 2780,
-            pv: 3908,
-            amt: 2000,
-        },
-        {
-            name: "Page E",
-            uv: 1890,
-            pv: 4800,
-            amt: 2181,
-        },
-        {
-            name: "Page F",
-            uv: 2390,
-            pv: 3800,
-            amt: 2500,
-        },
-        {
-            name: "Page G",
-            uv: 3490,
-            pv: 4300,
-            amt: 2100,
-        },
-    ];
     /*차트 데이터 가져오기*/
     const getChartVal = async (sel) => {
         await axios
-            .get("http://localhost:3000/", { params: { sel: sel } })
+            .get("http://localhost:3000/nwbreak", { params: { sel: sel } })
             .then((resp) => {
                 console.log(resp);
+                setChartVal(resp.data);
             })
             .catch((err) => {
                 console.log(err);
@@ -74,7 +31,7 @@ const Chart = () => {
         setSelVal(e.target.id);
     };
 
-    console.log(data);
+    console.log(chartVal);
     return (
         <div>
             <div>
@@ -106,7 +63,7 @@ const Chart = () => {
                     <BarChart
                         width={1000}
                         height={350}
-                        data={data}
+                        data={chartVal}
                         margin={{
                             top: 5,
                             right: 30,
