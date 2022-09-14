@@ -47,6 +47,41 @@ function Nav() {
                                 </Link>
                             </div>
                         </li>
+
+                        {/* Nw Break 게시판 */}
+                        <li className="nav-item dropdown">
+                            <div
+                                className="nav-link dropdown-toggle"
+                                id="navbarDropdown"
+                                role="button"
+                                data-toggle="dropdown"
+                                aria-haspopup="true"
+                                aria-expanded="false"
+                            >
+                                Break 게시판
+                            </div>
+
+                            <div
+                                className="dropdown-menu"
+                                aria-labelledby="navbarDropdown"
+                            >
+                                <Link
+                                    className="dropdown-item"
+                                    to="/nwbreaklist"
+                                >
+                                    글목록
+                                </Link>
+                                <Link
+                                    className="dropdown-item"
+                                    to="/nwbreakwrite"
+                                >
+                                    글추가
+                                </Link>
+                            </div>
+                        </li>
+
+                        {/* 지표 게시판 */}
+
                         <li className="nav-item dropdown">
                             <div
                                 className="nav-link dropdown-toggle"

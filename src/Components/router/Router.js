@@ -14,6 +14,11 @@ import RateWrite from "../rate/RateWrite";
 import RateKt from "../rate/RateKt";
 import RateSkb from "../rate/RateSkb";
 import RateKtsat from "../rate/RateKtsat";
+import NwBreakList from "../nwbreak/NwBreakList";
+import NwBreakWrite from "../nwbreak/NwBreakWrite";
+import NwBreakDetail from "../nwbreak/NwBreakDetail";
+import NwBreakUpdate from "../nwbreak/NwBreakUpdate";
+import NwBreakAnswer from "../nwbreak/NwBreakAnswer";
 
 function Router() {
     return (
@@ -29,6 +34,18 @@ function Router() {
             <Route path="/login" element={<Login />}></Route>
             <Route path="/join" element={<Join />}></Route>
             <Route path="/logout" element={<Logout />}></Route>
+
+            <Route path="/nwbreaklist" element={<NwBreakList />}></Route>
+            <Route path="/nwbreakwrite" element={<NwBreakWrite />}></Route>
+            <Route
+                path="/nwbreakdetail/:seq"
+                element={<NwBreakDetail />}
+            ></Route>
+            <Route path="/nwbreakupdate" element={<NwBreakUpdate />}></Route>
+            <Route
+                path="/nwbreakanswer/:parentSeq"
+                element={<NwBreakAnswer />}
+            ></Route>
 
             <Route path="/ratewrite" element={<RateWrite />}></Route>
             <Route path="/ratekt" element={<RateKt />}></Route>
