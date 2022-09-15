@@ -1,16 +1,16 @@
-import  React from "react";
-import Router from "../router/Router"
+import React from "react";
+import Router from "../router/Router";
 
 function Main() {
-	return (
-		<main>
-          <div className="py-4">
-            <div className="container">
-              <Router></Router>
+    return (
+        <main>
+            <div className="py-4">
+                <div className="container">
+                    <Router></Router>
+                </div>
             </div>
-          </div>
         </main>
-	);
+    );
 }
 
 export default Main;

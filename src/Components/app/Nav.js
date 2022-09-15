@@ -31,8 +31,7 @@ function Nav() {
                                 aria-haspopup="true"
                                 aria-expanded="false"
                             >
-                                <i className="fas fa-clipboard-list"></i>
-                                장애게시판
+                                게시판
                             </div>
 
                             <div
@@ -80,9 +79,7 @@ function Nav() {
                             </div>
                         </li>
 
-                        {/* 지표 게시판 */}
-
-<<<<<<< HEAD
+                        {/* 선번장 게시판 */}
                         <li className="nav-item dropdown">
                             <div
                                 className="nav-link dropdown-toggle"
@@ -92,31 +89,30 @@ function Nav() {
                                 aria-haspopup="true"
                                 aria-expanded="false"
                             >
-                                <i className="fas fa-file-signature"></i> 지표
+                                선번장
                             </div>
-=======
-							<div className="dropdown-menu" aria-labelledby="navbarDropdown">
-								<Link className="dropdown-item" to="/bbslist">글목록</Link>
-								<Link className="dropdown-item" to="/bbswrite">글추가</Link>
-							</div>
-						</li>
 
-						{/* Nw Break 게시판 */}
-						<li className="nav-item dropdown">
-
-							<div className="nav-link dropdown-toggle" id="navbarDropdown"
-								role="button" data-toggle="dropdown" aria-haspopup="true"
-								aria-expanded="false">Break 게시판</div>
-
-							<div className="dropdown-menu" aria-labelledby="navbarDropdown">
-								<Link className="dropdown-item" to="/nwbreaklist">글목록</Link>
-								<Link className="dropdown-item" to="/nwbreakwrite">글추가</Link>
-							</div>
-						</li>
-
-					</ul>
-					<ul className="navbar-nav ml-auto">
->>>>>>> 7bf38e1d8cae11c6a0e730ea02bb7189dd975c80
+                            <div
+                                className="dropdown-menu"
+                                aria-labelledby="navbarDropdown"
+                            >
+                                <Link className="dropdown-item" to="/linelist">
+                                    선번장 목록
+                                </Link>
+                            </div>
+                        </li>
+                        {/* 지표 게시판 */}
+                        <li className="nav-item dropdown">
+                            <div
+                                className="nav-link dropdown-toggle"
+                                id="navbarDropdown"
+                                role="button"
+                                data-toggle="dropdown"
+                                aria-haspopup="true"
+                                aria-expanded="false"
+                            >
+                                지표
+                            </div>
 
                             <div
                                 className="dropdown-menu"
