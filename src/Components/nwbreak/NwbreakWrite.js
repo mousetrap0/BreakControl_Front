@@ -107,20 +107,12 @@ const NwBreakWrite = () => {
                     <tr>
                         <th className="table-primary">작성자</th>
                         <td>
-                            {/*  <input
+                            <input
                                 type="text"
                                 className="form-control"
                                 value={localStorage.getItem("id")}
                                 size="50px"
                                 readOnly
-                            /> */}
-
-                            <input
-                                type="text"
-                                className="form-control"
-                                value={writer}
-                                onChange={changeWriter}
-                                size="50px"
                             />
                         </td>
                     </tr>
@@ -167,7 +159,7 @@ const NwBreakWrite = () => {
                         <th className="table-primary">Break 시간</th>
                         <td>
                             <input
-                                type="text"
+                                type="datetime-local"
                                 className="form-control"
                                 value={breakTime}
                                 onChange={changeBreaktime}
@@ -179,7 +171,7 @@ const NwBreakWrite = () => {
                         <th className="table-primary">해소 시간</th>
                         <td>
                             <input
-                                type="text"
+                                type="datetime-local"
                                 className="form-control"
                                 value={recoveryTime}
                                 onChange={changeRecoverytime}

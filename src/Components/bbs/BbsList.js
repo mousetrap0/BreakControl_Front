@@ -153,7 +153,6 @@ function BbsList() {
 /* 글 목록 테이블 행 컴포넌트 */
 function TableRow(props) {
     const bbs = props.obj;
-
     return (
         <tr>
             <th>{props.cnt}</th>

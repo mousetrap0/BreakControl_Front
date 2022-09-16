@@ -54,6 +54,7 @@ function NwBreakDetail() {
     }, []);
 
     const updateNwBreak = {
+        seq: nwBreak.seq,
         breakId: nwBreak.breakId,
         lineId: nwBreak.lineId,
         breakReason: nwBreak.breakReason,
@@ -61,7 +62,8 @@ function NwBreakDetail() {
     };
 
     const parentNwBreak = {
-        breakId: nwBreak.breakId,
+        lineId: nwBreak.lineId,
+        breakReason: nwBreak.breakReason,
     };
 
     return (
@@ -69,7 +71,7 @@ function NwBreakDetail() {
             <div className="my-3 d-flex justify-content-end">
                 <Link
                     className="btn btn-outline-secondary"
-                    to={{ pathname: `/nwbreakanswer/${nwBreak.breakId}` }}
+                    to={{ pathname: `/nwbreakanswer/${nwBreak.seq}` }}
                     state={{ parentNwBreak: parentNwBreak }}
                 >
                     <i className="fas fa-pen"></i> 답글쓰기

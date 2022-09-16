@@ -110,8 +110,8 @@ function NwBreakList() {
             <table className="table table-hover">
                 <thead>
                     <tr>
-                        <th className="col-1">Break ID</th>
-                        <th className="col-2">Line ID</th>
+                        <th className="col-1">번호</th>
+                        <th className="col-1">Line ID</th>
                         <th className="col-1">시설 위치</th>
                         <th className="col-1">시설명</th>
                         <th className="col-2">Break 시간</th>
@@ -152,11 +152,14 @@ function NwBreakList() {
 /* 글 목록 테이블 행 컴포넌트 */
 function TableRow(props) {
     const nwbreak = props.obj;
-
     return (
         <tr>
+            <th>{props.cnt}</th>
             {
                 <>
+                    <td>{nwbreak.lineId}</td>
+                    <td>{nwbreak.facilityGround}</td>
+
                     <td>
                         <Link
                             to={{
@@ -166,15 +169,12 @@ function TableRow(props) {
                             {" "}
                             {/* 게시글 상세 링크 */}
                             <span className="underline bbs-title">
-                                {nwbreak.breakId}{" "}
+                                {nwbreak.facilityName}{" "}
                             </span>{" "}
                             {/* 게시글 제목 */}
                         </Link>
                     </td>
 
-                    <td>{nwbreak.lineId}</td>
-                    <td>{nwbreak.facilityGround}</td>
-                    <td>{nwbreak.facilityName}</td>
                     <td>{nwbreak.breakTime}</td>
                     <td>{nwbreak.recoveryTime}</td>
                     <td>{nwbreak.breakManager}</td>
