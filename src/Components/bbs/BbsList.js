@@ -106,6 +106,7 @@ function BbsList() {
                     </tr>
                 </tbody>
             </table>
+
             <br />
             <table className="table table-hover">
                 <thead>
@@ -128,7 +129,6 @@ function BbsList() {
                     })}
                 </tbody>
             </table>
-
             <Pagination
                 className="pagination"
                 activePage={page}
