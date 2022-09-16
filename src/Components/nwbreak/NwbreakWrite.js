@@ -76,7 +76,6 @@ const NwBreakWrite = () => {
             breakReason: breakReason,
             writer: writer,
         };
-        console.log(req);
 
         await axios
             .post("http://localhost:3000/nwbreak", req, { headers: headers })
