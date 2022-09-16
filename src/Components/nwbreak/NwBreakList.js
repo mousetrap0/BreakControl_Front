@@ -159,7 +159,6 @@ function TableRow(props) {
                 <>
                     <td>{nwbreak.lineId}</td>
                     <td>{nwbreak.facilityGround}</td>
-
                     <td>
                         <Link
                             to={{
