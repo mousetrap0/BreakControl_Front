@@ -107,7 +107,6 @@ function BbsList() {
                 </tbody>
             </table>
             <br />
-
             <table className="table table-hover">
                 <thead>
                     <tr>
@@ -140,7 +139,6 @@ function BbsList() {
                 nextPageText={"›"}
                 onChange={changePage}
             />
-
             <div className="my-5 d-flex justify-content-center">
                 <Link className="btn btn-outline-secondary" to="/bbswrite">
                     <i className="fas fa-pen"></i> &nbsp; 글쓰기
