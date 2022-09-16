@@ -162,7 +162,6 @@ function Nav() {
                                     </Link>
                                 </li>
 
-<<<<<<< HEAD
                                 {/* 회원가입 */}
                                 <li className="nav-item">
                                     <Link className="nav-link" to="/join">
@@ -176,63 +175,6 @@ function Nav() {
             </div>
         </nav>
     );
-=======
-							<div className="dropdown-menu" aria-labelledby="navbarDropdown">
-								<Link className="dropdown-item" to="/nwbreaklist">글목록</Link>
-								<Link className="dropdown-item" to="/nwbreakwrite">글추가</Link>
-							</div>
-						</li>
-
-						{/* 선번장 게시판 */}
-						<li className="nav-item dropdown">
-
-							<div className="nav-link dropdown-toggle" id="navbarDropdown"
-								role="button" data-toggle="dropdown" aria-haspopup="true"
-								aria-expanded="false">선번장</div>
-
-							<div className="dropdown-menu" aria-labelledby="navbarDropdown">
-								<Link className="dropdown-item" to="/linelist">선번장 목록</Link>
-								
-							</div>
-						</li>
-
-					</ul>
-					<ul className="navbar-nav ml-auto">
-
-						{							
-							(auth) ?
-								<>
-									{/* 회원 정보 */}
-									<li className="nav-item">
-										<span className="nav-link"> {auth} 님 반갑습니다 <i className="fab fa-ello"></i> &nbsp; </span>
-									</li>
-
-									{/* 로그아웃 */}
-									<li className="nav-item">
-										<Link className="nav-link" to="/logout"><i className="fas fa-sign-out-alt"></i> 로그아웃</Link>
-									</li>
-
-								</>
-								:
-								<>
-									{/* 로그인 */}
-									<li className="nav-item">
-										<Link className="nav-link" to="/login">로그인</Link>
-									</li>
-
-									{/* 회원가입 */}
-									<li className="nav-item">
-										<Link className="nav-link" to="/join">회원가입</Link>
-									</li>
-								</>
-						}
-
-					</ul>
-				</div>
-			</div>
-		</nav>
-	);
->>>>>>> 4df442366babaa0484cffff9d1a4c4707c9278ce
 }
 
 export default Nav;
