@@ -136,6 +136,7 @@ function NwBreakList() {
                         <th className="col-2">해소 시간</th>
                         <th className="col-1">담당자</th>
                         <th className="col-1">지속시간</th>
+                        <th className="col-1">장애시간</th>
                     </tr>
                 </thead>
 
@@ -243,7 +244,7 @@ function TableRow(props) {
                     <td>{cnvrt(nwbreak.breakTime)}</td>
                     <td>{cnvrt(nwbreak.recoveryTime)}</td>
                     <td>{nwbreak.breakManager}</td>
-                    <td>{nwbreak.failTime}</td>
+                    <td>{nwbreak.failtime}</td>
                 </>
             }
         </tr>
