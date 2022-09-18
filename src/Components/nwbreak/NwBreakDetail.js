@@ -65,7 +65,7 @@ function NwBreakDetail() {
         lineId: nwBreak.lineId,
         breakReason: nwBreak.breakReason,
     };
-
+    console.log(localStorage.getItem("id"));
     return (
         <div>
             <div className="my-3 d-flex justify-content-end">

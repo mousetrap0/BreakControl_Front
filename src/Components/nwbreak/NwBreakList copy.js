@@ -10,9 +10,6 @@ import "../../css/bbslist.css";
 import "../../css/page.css";
 
 function NwBreakList() {
-    /*     const [CheckedItems, setCheckedItems] = useState(new Set());
-     */
-    const CheckedItems = new Set();
     const [nwBreakList, setNwBreakList] = useState([]);
 
     // 검색용 Hook
@@ -72,18 +69,6 @@ function NwBreakList() {
         getNwBreakList(choiceVal, searchVal, page);
     };
 
-    const onClickCheckbox = (e) => {
-        e.target.checked
-            ? CheckedItems.add(e.target.value)
-            : CheckedItems.delete(e.target.value);
-        /*         setCheckedItems(CheckedItems);
-         */
-    };
-
-    const cnvrt = (v) => {
-        return moment(v).format("YYYY-MM-DD HH:mm");
-    };
-
     return (
         <div>
             {/* 검색 */}
@@ -140,47 +125,13 @@ function NwBreakList() {
                 </thead>
 
                 <tbody>
-                    {nwBreakList.map((nwbreak, idx) => {
+                    {nwBreakList.map(function (nwbreak, idx) {
                         return (
-                            <>
-                                <tr>
-                                    <th>
-                                        <input
-                                            type="checkbox"
-                                            value={nwbreak.breakId}
-                                            onClick={(e) => {
-                                                onClickCheckbox(e);
-                                            }}
-                                        />
-                                    </th>
-                                    <th>{idx}</th>
-                                    <td>{nwbreak.lineId}</td>
-                                    <td>{nwbreak.facilityGround}</td>
-                                    <td>{nwbreak.facilityName}</td>
-                                    <td>{cnvrt(nwbreak.breakTime)}</td>
-                                    <td>{cnvrt(nwbreak.recoveryTime)}</td>
-                                    <td>{nwbreak.breakManager}</td>
-                                    <td>{nwbreak.failTime}</td>
-                                </tr>
-                            </>
+                            <TableRow obj={nwbreak} key={idx} cnt={idx + 1} />
                         );
                     })}
-                    {/* {nwBreakList.map(function (nwbreak, idx) {
-                        // return (
-                        //     <TableRow obj={nwbreak} key={idx} cnt={idx + 1} />
-                        // );
-                    })} */}
                 </tbody>
             </table>
-            <button
-                type="button"
-                onClick={() => {
-                    console.log(Array.from(CheckedItems));
-                    // axios.delete(Array.from(CheckedItems))
-                }}
-            >
-                testDelete
-            </button>
 
             <Pagination
                 className="pagination"
