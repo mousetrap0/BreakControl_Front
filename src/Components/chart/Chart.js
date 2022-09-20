@@ -10,6 +10,17 @@ import {
 } from "recharts";
 import axios from "axios";
 
+const Data = [
+    { name: "test1", count: 3, time: 4 },
+    { name: "test2", count: 1, time: 4 },
+    { name: "test3", count: 2, time: 11 },
+    { name: "test4", count: 7, time: 3 },
+    { name: "test5", count: 5, time: 3 },
+    { name: "test6", count: 10, time: 2 },
+    { name: "test7", count: 2, time: 1 },
+    { name: "test8", count: 2, time: 4 },
+];
+
 const Chart = () => {
     const [selVal, setSelVal] = useState();
     const [chartVal, setChartVal] = useState([]);
@@ -63,7 +74,7 @@ const Chart = () => {
                     <BarChart
                         width={1000}
                         height={350}
-                        data={chartVal}
+                        data={Data}
                         margin={{
                             top: 5,
                             right: 30,
@@ -76,7 +87,8 @@ const Chart = () => {
                         <YAxis />
                         <Tooltip />
                         <Legend />
-                        <Bar dataKey="pv" fill="#BC8F8F	" />
+                        <Bar dataKey="count" fill="#BC8F8F	" />
+                        <Bar dataKey="time" fill="#B8860B	" />
                     </BarChart>
                 </div>
             </div>

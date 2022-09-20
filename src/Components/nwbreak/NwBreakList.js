@@ -10,9 +10,7 @@ import "../../css/bbslist.css";
 import "../../css/page.css";
 
 function NwBreakList() {
-    /*     const [CheckedItems, setCheckedItems] = useState(new Set());
-     */
-    const CheckedItems = new Set();
+    const [Checked, setChecked] = useState(new Set());
     const [nwBreakList, setNwBreakList] = useState([]);
 
     // 검색용 Hook
@@ -74,14 +72,37 @@ function NwBreakList() {
 
     const onClickCheckbox = (e) => {
         e.target.checked
-            ? CheckedItems.add(e.target.value)
-            : CheckedItems.delete(e.target.value);
-        /*         setCheckedItems(CheckedItems);
-         */
+            ? Checked.add(e.target.value)
+            : Checked.delete(e.target.value);
+
+        setChecked(Checked);
     };
 
     const cnvrt = (v) => {
         return moment(v).format("YYYY-MM-DD HH:mm");
+    };
+
+    const onClickDeletes = () => {
+        const CheckedItems = Array.from(Checked);
+        console.log(CheckedItems, "11111");
+        CheckedItems.map(async (CheckedItem) => {
+            console.log(typeof CheckedItem, "<<<<<<<<<<<");
+            await axios
+                .delete(`http://localhost:3000/nwbreak/${CheckedItem}`)
+                .then((resp) => {
+                    console.log("[NWBreakList.js] deletesNwBreak() success :D");
+                    console.log(resp.data);
+
+                    if (resp.data.deletedRecordCount === 1) {
+                        alert("게시글을 성공적으로 삭제했습니다 :D");
+                        navigate("/nwbreaklist");
+                    }
+                })
+                .catch((err) => {
+                    console.log("[NWBreakList.js] deletesNwBreak() error :<");
+                    console.log(err);
+                });
+        });
     };
 
     return (
@@ -156,7 +177,21 @@ function NwBreakList() {
                                     <th>{idx}</th>
                                     <td>{nwbreak.lineId}</td>
                                     <td>{nwbreak.facilityGround}</td>
-                                    <td>{nwbreak.facilityName}</td>
+
+                                    <td>
+                                        <Link
+                                            to={{
+                                                pathname: `/nwbreakdetail/${nwbreak.breakId}`,
+                                            }}
+                                        >
+                                            {" "}
+                                            {/* 게시글 상세 링크 */}
+                                            <span className="underline bbs-title">
+                                                {nwbreak.facilityName}{" "}
+                                            </span>{" "}
+                                            {/* 게시글 제목 */}
+                                        </Link>
+                                    </td>
                                     <td>{cnvrt(nwbreak.breakTime)}</td>
                                     <td>{cnvrt(nwbreak.recoveryTime)}</td>
                                     <td>{nwbreak.breakManager}</td>
@@ -165,20 +200,9 @@ function NwBreakList() {
                             </>
                         );
                     })}
-                    {/* {nwBreakList.map(function (nwbreak, idx) {
-                        // return (
-                        //     <TableRow obj={nwbreak} key={idx} cnt={idx + 1} />
-                        // );
-                    })} */}
                 </tbody>
             </table>
-            <button
-                type="button"
-                onClick={() => {
-                    console.log(Array.from(CheckedItems));
-                    // axios.delete(Array.from(CheckedItems))
-                }}
-            >
+            <button type="button" onClick={onClickDeletes}>
                 testDelete
             </button>
 
@@ -202,51 +226,4 @@ function NwBreakList() {
     );
 }
 
-/** 글 목록 테이블 행 컴포넌트 */
-function TableRow(props) {
-    const nwbreak = props.obj;
-    const cnvrt = (v) => {
-        return moment(v).format("YYYY-MM-DD HH:mm");
-    };
-    const onCheckClick = () => {
-        return nwbreak.breakId;
-    };
-    return (
-        <tr>
-            <th>
-                <input
-                    type="checkbox"
-                    value={nwbreak.breakId}
-                    onClick={onCheckClick}
-                />
-            </th>
-            <th>{props.cnt}</th>
-            {
-                <>
-                    <td>{nwbreak.lineId}</td>
-                    <td>{nwbreak.facilityGround}</td>
-                    <td>
-                        <Link
-                            to={{
-                                pathname: `/nwbreakdetail/${nwbreak.breakId}`,
-                            }}
-                        >
-                            {" "}
-                            {/* 게시글 상세 링크 */}
-                            <span className="underline bbs-title">
-                                {nwbreak.facilityName}{" "}
-                            </span>{" "}
-                            {/* 게시글 제목 */}
-                        </Link>
-                    </td>
-
-                    <td>{cnvrt(nwbreak.breakTime)}</td>
-                    <td>{cnvrt(nwbreak.recoveryTime)}</td>
-                    <td>{nwbreak.breakManager}</td>
-                    <td>{nwbreak.failTime}</td>
-                </>
-            }
-        </tr>
-    );
-}
 export default NwBreakList;

@@ -22,7 +22,7 @@ function Nav() {
                         </li>
 
                         {/* 게시판 */}
-                        <li className="nav-item dropdown">
+                        {/*   <li className="nav-item dropdown">
                             <div
                                 className="nav-link dropdown-toggle"
                                 id="navbarDropdown"
@@ -45,7 +45,7 @@ function Nav() {
                                     글추가
                                 </Link>
                             </div>
-                        </li>
+                        </li> */}
 
                         {/* Nw Break 게시판 */}
                         <li className="nav-item dropdown">
@@ -102,7 +102,7 @@ function Nav() {
                             </div>
                         </li>
                         {/* 지표 게시판 */}
-                        <li className="nav-item dropdown">
+                        {/*   <li className="nav-item dropdown">
                             <div
                                 className="nav-link dropdown-toggle"
                                 id="navbarDropdown"
@@ -131,7 +131,7 @@ function Nav() {
                                     KTsat
                                 </Link>
                             </div>
-                        </li>
+                        </li> */}
                     </ul>
                     <ul className="navbar-nav ml-auto">
                         {auth ? (
