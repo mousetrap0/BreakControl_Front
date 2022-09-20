@@ -157,6 +157,7 @@ function NwBreakList() {
                         <th className="col-2">해소 시간</th>
                         <th className="col-1">담당자</th>
                         <th className="col-1">지속시간</th>
+                        <th className="col-1">장애시간</th>
                     </tr>
                 </thead>
 

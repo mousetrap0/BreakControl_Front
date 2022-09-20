@@ -1,1 +1,6 @@
+node_modules/.cache/
+build/static/js/
+build/asset-manifest.json
 node_modules
+package.json
+package-lock.json
