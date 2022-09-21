@@ -66,7 +66,6 @@ const NwBreakWrite = () => {
             title: title,
             content: content,
  */
-            breakId: localStorage.getItem("breakId"),
             lineId: lineId,
             facilityGround: facilityGround,
             facilityName: facilityName,
@@ -74,7 +73,7 @@ const NwBreakWrite = () => {
             recoveryTime: recoveryTime,
             breakManager: breakManager,
             breakReason: breakReason,
-            writer: localStorage.getItem("id")
+            writer: localStorage.getItem("id"),
         };
 
         await axios
