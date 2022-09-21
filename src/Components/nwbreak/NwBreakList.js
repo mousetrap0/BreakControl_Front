@@ -148,11 +148,11 @@ function NwBreakList() {
             <table className="table table-hover">
                 <thead>
                     <tr>
-                        <th className="col-1"></th>
-                        <th className="col-1">번호</th>
+                        <th className="col-1"></th>                       
                         <th className="col-1">Line ID</th>
                         <th className="col-1">시설 위치</th>
                         <th className="col-1">시설명</th>
+                        <th className="col-1">Break Id</th>
                         <th className="col-2">Break 시간</th>
                         <th className="col-2">해소 시간</th>
                         <th className="col-1">담당자</th>
@@ -174,10 +174,10 @@ function NwBreakList() {
                                                 onClickCheckbox(e);
                                             }}
                                         />
-                                    </th>
-                                    <th>{idx}</th>
+                                    </th>                                    
                                     <td>{nwbreak.lineId}</td>
                                     <td>{nwbreak.facilityGround}</td>
+                                    <td>{nwbreak.facilityName}</td>
 
                                     <td>
                                         <Link
@@ -188,7 +188,7 @@ function NwBreakList() {
                                             {" "}
                                             {/* 게시글 상세 링크 */}
                                             <span className="underline bbs-title">
-                                                {nwbreak.facilityName}{" "}
+                                                {nwbreak.breakId}{" "}
                                             </span>{" "}
                                             {/* 게시글 제목 */}
                                         </Link>
@@ -196,6 +196,7 @@ function NwBreakList() {
                                     <td>{cnvrt(nwbreak.breakTime)}</td>
                                     <td>{cnvrt(nwbreak.recoveryTime)}</td>
                                     <td>{nwbreak.breakManager}</td>
+                                    <td>{nwbreak.failTime}분</td>
                                     <td>{nwbreak.failTime}</td>
                                 </tr>
                             </>

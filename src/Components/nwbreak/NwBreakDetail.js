@@ -6,6 +6,8 @@ import CommentWrite from "../comment/CommentWrite";
 import CommentList from "../comment/CommentList";
 import { AuthContext } from "../context/AuthProvider";
 
+import moment from "moment";
+
 function NwBreakDetail() {
     const { auth, setAuth } = useContext(AuthContext);
 
@@ -29,6 +31,10 @@ function NwBreakDetail() {
                 console.log("[NwBreakDetail.js] getNwBreakDetail() error :<");
                 console.log(err);
             });
+    };
+
+    const cnvrt = (v) => {
+        return moment(v).format("YYYY-MM-DD HH:mm");
     };
 
     const deleteNwBreak = async () => {
@@ -119,14 +125,14 @@ function NwBreakDetail() {
                     <tr>
                         <th>Break 발생일</th>
                         <td>
-                            <span>{nwBreak.breakTime}</span>
+                            <span>{cnvrt(nwBreak.breakTime)}</span>
                         </td>
                     </tr>
 
                     <tr>
                         <th>Recovery 시간</th>
                         <td>
-                            <span>{nwBreak.recoveryTime}</span>
+                            <span>{cnvrt(nwBreak.recoveryTime)}</span>
                         </td>
                     </tr>
 
