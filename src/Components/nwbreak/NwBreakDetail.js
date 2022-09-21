@@ -17,6 +17,7 @@ function NwBreakDetail() {
     const navigate = useNavigate();
 
     const getNwBreakDetail = async () => {
+        console.log(auth);
         await axios
             .get(`http://localhost:3000/nwbreak/${seq}`, {
                 params: { readerId: auth ? auth : "" },
@@ -71,7 +72,6 @@ function NwBreakDetail() {
         lineId: nwBreak.lineId,
         breakReason: nwBreak.breakReason,
     };
-    console.log(localStorage.getItem("id"));
     return (
         <div>
             <div className="my-3 d-flex justify-content-end">

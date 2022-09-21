@@ -181,7 +181,7 @@ function NwBreakList() {
                                     <td>
                                         <Link
                                             to={{
-                                                pathname: `/nwbreakdetail/${nwbreak.seq}`,
+                                                pathname: `/nwbreakdetail/${nwbreak.breakId}`,
                                             }}
                                         >
                                             {" "}
