@@ -12,26 +12,30 @@ import axios from "axios";
 import { useContext } from "react";
 import { AuthContext } from "../context/AuthProvider";
 
-const Data = [
+const apiData = [
     { name: "test1", count: 3, time: 4 },
+    { name: "test1", count: 3, time: 4 },
+    { name: "test1", count: 3, time: 4 },
+
     { name: "test2", count: 1, time: 4 },
+    { name: "test2", count: 1, time: 4 },
+
     { name: "test3", count: 2, time: 11 },
     { name: "test4", count: 7, time: 3 },
     { name: "test5", count: 5, time: 3 },
-    { name: "test6", count: 10, time: 2 },
-    { name: "test7", count: 2, time: 1 },
-    { name: "test8", count: 2, time: 4 },
 ];
 
 const Chart = () => {
     const [selVal, setSelVal] = useState();
-    const [chartVal, setChartVal] = useState([]);
+    const [chartIdx, setChartIdx] = useState(new Set());
+    const [chartCunt, setChartCunt] = useState([]);
+    const [chartTime, setChartTime] = useState(new Set());
 
-    const { auth, setAuth } = useContext(AuthContext);
+    const [chartVal, setChartVal] = useState({ N: "1", C: "1", T: "1" });
 
     /*차트 데이터 가져오기*/
     const initdata = async () => {
-        await axios
+        /*      await axios
             .get("http://localhost:3000/nwbreak", {
                 params: { readerId: auth ? auth : "" },
             })
@@ -40,7 +44,21 @@ const Chart = () => {
             })
             .catch((err) => {
                 console.log(err, "fail");
+            }); */
+
+        apiData.map((d, idx, arr) => {
+            chartIdx.add(d.name);
+            setChartIdx(chartIdx);
+        });
+        let res = 0;
+
+        chartIdx.forEach((v) => {
+            const aaa = apiData.filter((a) => {
+                if (v === a.name) res = res + a.count;
+                return setChartTime({ na: v, co: res });
             });
+            res = 0;
+        });
     };
 
     useEffect(() => {
@@ -83,7 +101,7 @@ const Chart = () => {
                     <BarChart
                         width={1000}
                         height={350}
-                        data={Data}
+                        data={apiData}
                         margin={{
                             top: 5,
                             right: 30,

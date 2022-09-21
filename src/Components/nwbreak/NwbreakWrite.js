@@ -80,7 +80,8 @@ const NwBreakWrite = () => {
             .post("http://localhost:3000/nwbreak", req, { headers: headers })
             .then((resp) => {
                 console.log("[NwBreakWrite.js] createNwBreak() success :D");
-                console.log(resp.data);
+                console.log(req);
+                console.log(resp.data, "<><>");
 
                 alert("새로운 게시글을 성공적으로 등록했습니다 :D");
                 navigate(`/nwbreaklist`); // list로 이동
