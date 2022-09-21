@@ -10,8 +10,10 @@ import "../../css/bbslist.css";
 import "../../css/page.css";
 
 function NwBreakList() {
-    const [Checked, setChecked] = useState(new Set());
     const [nwBreakList, setNwBreakList] = useState([]);
+
+    //체크된 박스 저장
+    const [Checked, setChecked] = useState(new Set());
 
     // 검색용 Hook
     const [choiceVal, setChoiceVal] = useState("");
@@ -37,6 +39,7 @@ function NwBreakList() {
                 setNwBreakList(resp.data.nwBreakList);
                 setTotalCnt(resp.data.pageCnt);
             })
+
             .catch((err) => {
                 console.log("[NwBreakList.js] useEffect() error :<");
                 console.log(err);

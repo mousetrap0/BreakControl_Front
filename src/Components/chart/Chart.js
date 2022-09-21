@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
     BarChart,
     Bar,
@@ -9,6 +9,8 @@ import {
     Legend,
 } from "recharts";
 import axios from "axios";
+import { useContext } from "react";
+import { AuthContext } from "../context/AuthProvider";
 
 const Data = [
     { name: "test1", count: 3, time: 4 },
@@ -25,24 +27,31 @@ const Chart = () => {
     const [selVal, setSelVal] = useState();
     const [chartVal, setChartVal] = useState([]);
 
+    const { auth, setAuth } = useContext(AuthContext);
+
     /*차트 데이터 가져오기*/
-    const getChartVal = async (sel) => {
+    const initdata = async () => {
         await axios
-            .get("http://localhost:3000/nwbreak", { params: { sel: sel } })
+            .get("http://localhost:3000/nwbreak", {
+                params: { readerId: auth ? auth : "" },
+            })
             .then((resp) => {
-                console.log(resp);
-                setChartVal(resp.data);
+                console.log(resp, "success");
             })
             .catch((err) => {
-                console.log(err);
+                console.log(err, "fail");
             });
     };
+
+    useEffect(() => {
+        initdata();
+    }, []);
+
     /* 차트 기간 선택 */
     const onSelClick = (e) => {
         setSelVal(e.target.id);
     };
 
-    console.log(chartVal);
     return (
         <div>
             <div>
