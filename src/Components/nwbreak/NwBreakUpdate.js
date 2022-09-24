@@ -4,6 +4,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { useContext, useState } from "react";
 import { AuthContext } from "../context/AuthProvider";
 import { HttpHeadersContext } from "../context/HttpHeadersProvider";
+import moment from "moment";
 
 function NwBreakUpdate() {
     const { headers, setHeaders } = useContext(HttpHeadersContext);
@@ -12,37 +13,86 @@ function NwBreakUpdate() {
     const navigate = useNavigate();
 
     const location = useLocation();
-    const { nwbreak } = location.state;
+    const { nwBreak } = location.state;
 
-    const [title, setTitle] = useState(nwbreak.title);
-    const [content, setContent] = useState(nwbreak.content);
+    console.log(nwBreak, "!!!");
 
-    const changeTitle = (event) => {
+    /*     const [title, setTitle] = useState(nwBreak.title);
+    const [content, setContent] = useState(nwBreak.content);
+ */
+    const [lineId, setLineId] = useState(nwBreak.lineId);
+    const [facilityGround, setFacilityGround] = useState(
+        nwBreak.facilityGround
+    );
+    const [facilityName, setFacilityName] = useState(nwBreak.facilityName);
+    const [breakTime, setBreakTime] = useState(nwBreak.breakTime);
+    console.log(nwBreak.breakTime, "breakTime");
+    const [recoveryTime, setRecoveryTime] = useState(nwBreak.recoveryTime);
+    const [breakManager, setBreakManager] = useState(nwBreak.breakManager);
+    const [breakReason, setBreakReason] = useState(nwBreak.breakReason);
+
+    /*     const changeTitle = (event) => {
         setTitle(event.target.value);
     };
 
     const changeContent = (event) => {
         setContent(event.target.value);
+    }; */
+
+    const changeLineId = (event) => {
+        setLineId(event.target.value);
+    };
+    const changeFacilityground = (event) => {
+        setFacilityGround(event.target.value);
     };
 
+    const changeFacilityname = (event) => {
+        setFacilityName(event.target.value);
+    };
+    const changeBreaktime = (event) => {
+        setBreakTime(event.target.value);
+    };
+
+    const changeRecoverytime = (event) => {
+        setRecoveryTime(event.target.value);
+    };
+
+    const changeBreakmanager = (event) => {
+        setBreakManager(event.target.value);
+    };
+    const changeBreakreason = (event) => {
+        setBreakReason(event.target.value);
+    };
+
+    const cnvrt = (v) => {
+        return moment(v).format("yyyy-MM-ddThh:mm");
+    };
     const updateNwBreak = async () => {
         const req = {
-            id: auth,
+            /*  id: auth,
             title: title,
-            content: content,
+            content: content, */
+            lineId: lineId,
+            facilityGround: facilityGround,
+            facilityName: facilityName,
+            breakTime: cnvrt(breakTime),
+            recoveryTime: cnvrt(recoveryTime),
+            breakManager: breakManager,
+            breakReason: breakReason,
+            writer: localStorage.getItem("id"),
         };
 
         await axios
-            .patch(`http://localhost:3000/nwbreak/${nwbreak.seq}`, req, {
+            .patch(`http://localhost:3000/nwBreak/${nwBreak.breakId}`, req, {
                 headers: headers,
             })
             .then((resp) => {
                 console.log("[NwBreakUpdate.js] updateNwBreak() success :D");
-                console.log(resp.data);
+                console.log(resp.data, "resq.data");
 
                 if (resp.data.updatedRecordCount == 1) {
                     alert("게시글을 성공적으로 수정했습니다 :D");
-                    navigate(`/nwbreakdetail/${nwbreak.seq}`); // 글 상세로 이동
+                    navigate(`/nwbreakdetail/${nwBreak.seq}`); // 글 상세로 이동
                 }
             })
             .catch((err) => {
@@ -61,7 +111,7 @@ function NwBreakUpdate() {
                             <input
                                 type="text"
                                 className="form-control"
-                                value={nwbreak.id}
+                                value={localStorage.getItem("id")}
                                 size="50px"
                                 readOnly
                             />
@@ -69,25 +119,87 @@ function NwBreakUpdate() {
                     </tr>
 
                     <tr>
-                        <th className="table-primary">제목</th>
+                        <th className="table-primary">Line ID</th>
                         <td>
                             <input
                                 type="text"
                                 className="form-control"
-                                value={title}
-                                onChange={changeTitle}
+                                value={lineId}
+                                onChange={changeLineId}
                                 size="50px"
                             />
                         </td>
                     </tr>
 
                     <tr>
-                        <th className="table-primary">내용</th>
+                        <th className="table-primary">시설위치</th>
+
+                        <td>
+                            <input
+                                type="text"
+                                className="form-control"
+                                value={facilityGround}
+                                onChange={changeFacilityground}
+                                size="50px"
+                            />
+                        </td>
+                    </tr>
+                    <tr>
+                        <th className="table-primary">시설명</th>
+                        <td>
+                            <input
+                                type="text"
+                                className="form-control"
+                                value={facilityName}
+                                onChange={changeFacilityname}
+                                size="50px"
+                            />
+                        </td>
+                    </tr>
+                    <tr>
+                        <th className="table-primary">Break 시간</th>
+                        <td>
+                            <input
+                                type="datetime-local"
+                                className="form-control"
+                                value={breakTime}
+                                onChange={changeBreaktime}
+                                size="50px"
+                            />
+                        </td>
+                    </tr>
+                    <tr>
+                        <th className="table-primary">해소 시간</th>
+                        <td>
+                            <input
+                                type="datetime-local"
+                                className="form-control"
+                                value={recoveryTime}
+                                onChange={changeRecoverytime}
+                                size="50px"
+                            />
+                        </td>
+                    </tr>
+                    <tr>
+                        <th className="table-primary">Break 담당자</th>
+                        <td>
+                            <input
+                                type="text"
+                                className="form-control"
+                                value={breakManager}
+                                onChange={changeBreakmanager}
+                                size="50px"
+                            />
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <th className="table-primary">Break 원인</th>
                         <td>
                             <textarea
                                 className="form-control"
-                                value={content}
-                                onChange={changeContent}
+                                value={breakReason}
+                                onChange={changeBreakreason}
                                 rows="10"
                             ></textarea>
                         </td>

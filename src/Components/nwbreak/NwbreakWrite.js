@@ -4,6 +4,7 @@ import { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/AuthProvider";
 import { HttpHeadersContext } from "../context/HttpHeadersProvider";
+import moment from "moment";
 
 const NwBreakWrite = () => {
     const { auth, setAuth } = useContext(AuthContext);
@@ -55,8 +56,9 @@ const NwBreakWrite = () => {
     const changeBreakreason = (event) => {
         setBreakReason(event.target.value);
     };
-    const changeWriter = (event) => {
-        setWriter(event.target.value);
+
+    const cnvrt = (v) => {
+        return moment(v).format("YYYY-MM-DD HH:mm");
     };
 
     /* [POST /nwbreak]: 게시글 작성 */

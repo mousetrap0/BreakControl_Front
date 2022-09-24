@@ -59,19 +59,24 @@ function NwBreakDetail() {
     useEffect(() => {
         getNwBreakDetail();
     }, []);
-
     const updateNwBreak = {
         seq: nwBreak.seq,
+
         breakId: nwBreak.breakId,
         lineId: nwBreak.lineId,
+        facilityGround: nwBreak.facilityGround,
+        facilityName: nwBreak.facilityName,
+        breakTime: cnvrt(nwBreak.breakTime),
+        recoveryTime: cnvrt(nwBreak.recoveryTime),
+        breakManager: nwBreak.breakManager,
         breakReason: nwBreak.breakReason,
-        breakTime: nwBreak.breakTime,
     };
 
     const parentNwBreak = {
         lineId: nwBreak.lineId,
         breakReason: nwBreak.breakReason,
     };
+
     return (
         <div>
             <div className="my-3 d-flex justify-content-end">
