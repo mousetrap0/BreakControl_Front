@@ -26,6 +26,7 @@ const apiData = [
 ];
 
 const Chart = () => {
+    const { auth, setAuth } = useContext(AuthContext);
     const [selVal, setSelVal] = useState();
     const [chartIdx, setChartIdx] = useState(new Set());
     const [chartCunt, setChartCunt] = useState([]);
@@ -35,8 +36,8 @@ const Chart = () => {
 
     /*차트 데이터 가져오기*/
     const initdata = async () => {
-        /*      await axios
-            .get("http://localhost:3000/nwbreak", {
+        await axios
+            .get("http://localhost:3000/nwbreak/chart", {
                 params: { readerId: auth ? auth : "" },
             })
             .then((resp) => {
@@ -44,9 +45,9 @@ const Chart = () => {
             })
             .catch((err) => {
                 console.log(err, "fail");
-            }); */
+            });
 
-        apiData.map((d, idx, arr) => {
+        /*         apiData.map((d, idx, arr) => {
             chartIdx.add(d.name);
             setChartIdx(chartIdx);
         });
@@ -58,7 +59,7 @@ const Chart = () => {
                 return setChartTime({ na: v, co: res });
             });
             res = 0;
-        });
+        }); */
     };
 
     useEffect(() => {
@@ -73,7 +74,6 @@ const Chart = () => {
     return (
         <div>
             <div>
-                {" "}
                 <div className="mb-3 d-flex justify-content-end">
                     <button
                         className="btn btn-outline-secondary"
