@@ -12,14 +12,15 @@ function NwBreakDetail() {
     const { auth, setAuth } = useContext(AuthContext);
 
     const [nwBreak, setNwBreak] = useState({});
-    const { seq } = useParams(); // 파라미터 가져오기
+    const { breakId } = useParams();
+
+    console.log(breakId, "ssssssssssss");
 
     const navigate = useNavigate();
 
     const getNwBreakDetail = async () => {
-        console.log(auth);
         await axios
-            .get(`http://localhost:3000/nwbreak/${seq}`, {
+            .get(`http://localhost:3000/nwbreak/${breakId}`, {
                 params: { readerId: auth ? auth : "" },
             })
             .then((resp) => {
@@ -40,7 +41,7 @@ function NwBreakDetail() {
 
     const deleteNwBreak = async () => {
         await axios
-            .delete(`http://localhost:3000/nwbreak/${seq}`)
+            .delete(`http://localhost:3000/nwbreak/${breakId}`)
             .then((resp) => {
                 console.log("[BbsDetail.js] deleteNwBreak() success :D");
                 console.log(resp.data);
@@ -60,8 +61,6 @@ function NwBreakDetail() {
         getNwBreakDetail();
     }, []);
     const updateNwBreak = {
-        seq: nwBreak.seq,
-
         breakId: nwBreak.breakId,
         lineId: nwBreak.lineId,
         facilityGround: nwBreak.facilityGround,
@@ -82,7 +81,7 @@ function NwBreakDetail() {
             <div className="my-3 d-flex justify-content-end">
                 <Link
                     className="btn btn-outline-secondary"
-                    to={{ pathname: `/nwbreakanswer/${nwBreak.seq}` }}
+                    to={{ pathname: `/nwbreakanswer/${nwBreak.breakId}` }}
                     state={{ parentNwBreak: parentNwBreak }}
                 >
                     <i className="fas fa-pen"></i> 답글쓰기
@@ -160,11 +159,11 @@ function NwBreakDetail() {
 
             {/* 댓글 작성 컴포넌트 */}
             {auth ? ( // 로그인한 사용자만 댓글 작성 가능
-                <CommentWrite breakId={seq} />
+                <CommentWrite breakId={breakId} />
             ) : null}
 
             {/* 댓글 리스트 컴포넌트 */}
-            <CommentList breakId={seq} />
+            <CommentList breakId={breakId} />
         </div>
     );
 }

@@ -92,7 +92,7 @@ function NwBreakUpdate() {
 
                 if (resp.data.updatedRecordCount == 1) {
                     alert("게시글을 성공적으로 수정했습니다 :D");
-                    navigate(`/nwbreakdetail/${nwBreak.seq}`); // 글 상세로 이동
+                    navigate(`/nwbreakdetail/${nwBreak.breakId}`); // 글 상세로 이동
                 }
             })
             .catch((err) => {

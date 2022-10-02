@@ -43,7 +43,7 @@ function Router() {
             <Route path="/nwbreaklist" element={<NwBreakList />}></Route>
             <Route path="/nwbreakwrite" element={<NwBreakWrite />}></Route>
             <Route
-                path="/nwbreakdetail/:seq"
+                path="/nwbreakdetail/:breakId"
                 element={<NwBreakDetail />}
             ></Route>
             <Route path="/nwbreakupdate" element={<NwBreakUpdate />}></Route>
