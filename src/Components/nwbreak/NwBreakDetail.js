@@ -14,8 +14,6 @@ function NwBreakDetail() {
     const [nwBreak, setNwBreak] = useState({});
     const { breakId } = useParams();
 
-    console.log(breakId, "ssssssssssss");
-
     const navigate = useNavigate();
 
     const getNwBreakDetail = async () => {
@@ -75,6 +73,8 @@ function NwBreakDetail() {
         lineId: nwBreak.lineId,
         breakReason: nwBreak.breakReason,
     };
+    console.log(localStorage.getItem("id"), "1111");
+    console.log(nwBreak.writer, "2222");
 
     return (
         <div>
