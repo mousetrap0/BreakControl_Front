@@ -27,48 +27,34 @@ const apiData = [
 
 const Chart = () => {
     const { auth, setAuth } = useContext(AuthContext);
-    const [selVal, setSelVal] = useState();
-    const [chartIdx, setChartIdx] = useState(new Set());
-    const [chartCunt, setChartCunt] = useState([]);
-    const [chartTime, setChartTime] = useState(new Set());
 
-    const [chartVal, setChartVal] = useState({ N: "1", C: "1", T: "1" });
+    //차트 기간설정
+    const [termVal, setTermVal] = useState();
+
+    const [chartVal, setChartVal] = useState();
 
     /*차트 데이터 가져오기*/
-    const initdata = async () => {
+    const initdata = async (term) => {
         await axios
             .get("http://localhost:3000/nwbreak/chart", {
-                params: { readerId: auth ? auth : "" },
+                params: { type: term },
             })
             .then((resp) => {
                 console.log(resp, "success");
+                setChartVal(resp.data.chartList);
             })
             .catch((err) => {
                 console.log(err, "fail");
             });
-
-        /*         apiData.map((d, idx, arr) => {
-            chartIdx.add(d.name);
-            setChartIdx(chartIdx);
-        });
-        let res = 0;
-
-        chartIdx.forEach((v) => {
-            const aaa = apiData.filter((a) => {
-                if (v === a.name) res = res + a.count;
-                return setChartTime({ na: v, co: res });
-            });
-            res = 0;
-        }); */
     };
 
     useEffect(() => {
-        initdata();
+        initdata("year");
     }, []);
 
     /* 차트 기간 선택 */
     const onSelClick = (e) => {
-        setSelVal(e.target.id);
+        setTermVal(e.target.id);
     };
 
     return (
@@ -101,7 +87,7 @@ const Chart = () => {
                     <BarChart
                         width={1000}
                         height={350}
-                        data={apiData}
+                        data={chartVal}
                         margin={{
                             top: 5,
                             right: 30,
@@ -110,12 +96,12 @@ const Chart = () => {
                         }}
                     >
                         <CartesianGrid strokeDasharray="3 3" />
-                        <XAxis dataKey="name" />
+                        <XAxis dataKey="lineId" />
                         <YAxis />
                         <Tooltip />
                         <Legend />
-                        <Bar dataKey="count" fill="#BC8F8F	" />
-                        <Bar dataKey="time" fill="#B8860B	" />
+                        <Bar dataKey="failTimeTotal" fill="#BC8F8F	" />
+                        <Bar dataKey="breakCount" fill="#B8860B	" />
                     </BarChart>
                 </div>
             </div>
