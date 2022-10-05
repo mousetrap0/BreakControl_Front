@@ -12,7 +12,7 @@ import axios from "axios";
 import { useContext } from "react";
 import { AuthContext } from "../context/AuthProvider";
 
-const Chart = () => {
+const BreakChart = () => {
     const { auth, setAuth } = useContext(AuthContext);
 
     //차트 기간설정
@@ -137,4 +137,4 @@ const Chart = () => {
     );
 };
 
-export default Chart;
+export default BreakChart;

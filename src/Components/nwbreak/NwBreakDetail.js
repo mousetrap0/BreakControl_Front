@@ -89,7 +89,7 @@ function NwBreakDetail() {
                 &nbsp;
                 {
                     /* 자신이 작성한 게시글인 경우에만 수정 삭제 가능 */
-                    localStorage.getItem("id") === nwBreak.id ? (
+                    localStorage.getItem("id") === nwBreak.writer ? (
                         <>
                             <Link
                                 className="btn btn-outline-secondary"

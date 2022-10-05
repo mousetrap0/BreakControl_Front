@@ -1,11 +1,14 @@
 import React from "react";
-import Chart from "../chart/Chart";
+import BreakChart from "../chart/BreakChart";
+import HomeChart from "../chart/HomeChart";
 function Home() {
     return (
         <div>
-            <h2>항행통신부 종합통신소 장애 관리</h2>
             <div>
-                <Chart />
+                <HomeChart />
+            </div>
+            <div>
+                <BreakChart />
             </div>
         </div>
     );
