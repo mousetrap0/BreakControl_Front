@@ -20,7 +20,6 @@ function App() {
                         <Main />
                     </HttpHeadersProvider>
                 </AuthProvider>
-
                 <Footer />
             </BrowserRouter>
         </div>
