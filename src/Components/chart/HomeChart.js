@@ -1,5 +1,5 @@
 import React, { useCallback, useState } from "react";
-import { PieChart, Pie, Sector, Tooltip } from "recharts";
+import { PieChart, Pie, Sector } from "recharts";
 import moment from "moment";
 import { useNavigate } from "react-router-dom";
 
@@ -148,21 +148,23 @@ const HomeChart = () => {
     };
 
     return (
-        <PieChart width={1100} height={800}>
-            <Pie
-                activeIndex={activeIndex}
-                activeShape={renderActiveShape}
-                data={data}
-                cx={550}
-                cy={230}
-                innerRadius={150}
-                outerRadius={200}
-                fill="#766C30"
-                dataKey="value"
-                onMouseEnter={onPieEnter}
-                onClick={onPieClick}
-            />
-        </PieChart>
+        <div className="mb-3 d-flex justify-content-center">
+            <PieChart width={1100} height={500}>
+                <Pie
+                    activeIndex={activeIndex}
+                    activeShape={renderActiveShape}
+                    data={data}
+                    cx={550}
+                    cy={230}
+                    innerRadius={150}
+                    outerRadius={200}
+                    fill="#766C30"
+                    dataKey="value"
+                    onMouseEnter={onPieEnter}
+                    onClick={onPieClick}
+                />
+            </PieChart>
+        </div>
     );
 };
 

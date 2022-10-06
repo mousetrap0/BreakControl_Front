@@ -55,7 +55,13 @@ const BreakChart = () => {
     return (
         <div>
             <div className="mb-3 d-flex justify-content-center">
-                <div style={{ backgroundColor: "#F6F6F6", padding: "20px" }}>
+                <div
+                    className="border border-dark border-2"
+                    style={{
+                        backgroundColor: "#F6F6F6",
+                        padding: "20px",
+                    }}
+                >
                     <div className="mb-3 mr-5 d-flex justify-content-end">
                         <button
                             className="btn btn-outline-secondary"
