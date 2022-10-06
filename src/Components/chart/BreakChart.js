@@ -55,12 +55,13 @@ const BreakChart = () => {
     return (
         <div>
             <div className="mb-3 d-flex justify-content-center">
-                <div>
+                <div style={{ backgroundColor: "#F6F6F6", padding: "20px" }}>
                     <div className="mb-3 mr-5 d-flex justify-content-end">
                         <button
                             className="btn btn-outline-secondary"
                             id="year"
                             onClick={onSelClick}
+                            style={{ fontSize: "20", fontWeight: "bold" }}
                         >
                             연간
                         </button>
@@ -68,6 +69,7 @@ const BreakChart = () => {
                             className="btn btn-outline-secondary"
                             id="quarter"
                             onClick={onSelClick}
+                            style={{ fontSize: "20", fontWeight: "bold" }}
                         >
                             분기
                         </button>
@@ -75,6 +77,7 @@ const BreakChart = () => {
                             className="btn btn-outline-secondary"
                             id="month"
                             onClick={onSelClick}
+                            style={{ fontSize: "20", fontWeight: "bold" }}
                         >
                             월간
                         </button>
@@ -94,6 +97,7 @@ const BreakChart = () => {
                         <XAxis
                             dataKey="회선이름"
                             padding={{ left: 20, right: 20 }}
+                            style={{ fontSize: "20", fontWeight: "bold" }}
                         />
                         <YAxis
                             yAxisId="left"
@@ -102,9 +106,12 @@ const BreakChart = () => {
                                 offset: 30,
                                 angle: 0,
                                 position: "top",
+                                fontWeight: "",
+                                fontSize: "20",
                             }}
                             type="number"
                             domain={[0, (dataMax) => dataMax]}
+                            style={{ fontSize: "20", fontWeight: "" }}
                         />
                         <YAxis
                             yAxisId="right"
@@ -114,7 +121,10 @@ const BreakChart = () => {
                                 offset: 30,
                                 angle: 0,
                                 position: "top",
+                                fontWeight: "",
+                                fontSize: "20",
                             }}
+                            style={{ fontSize: "20", fontWeight: "" }}
                         />
                         <Tooltip />
                         <Legend />
@@ -122,13 +132,13 @@ const BreakChart = () => {
                             yAxisId="left"
                             dataKey="장애지속시간(분)"
                             barSize={termVal === "year" ? 50 : 100}
-                            fill="#BC8F8F	"
+                            fill="#4E6697"
                         />
                         <Bar
                             yAxisId="right"
                             dataKey="장애횟수(건)"
                             barSize={termVal === "year" ? 50 : 100}
-                            fill="#B8860B	"
+                            fill="#2A8755"
                         />
                     </BarChart>
                 </div>

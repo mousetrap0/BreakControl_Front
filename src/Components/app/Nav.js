@@ -66,15 +66,21 @@ function Nav() {
                             >
                                 <Link
                                     className="dropdown-item"
+                                    to="/nwbreakchart"
+                                >
+                                    장애현황
+                                </Link>
+                                <Link
+                                    className="dropdown-item"
                                     to="/nwbreaklist"
                                 >
-                                    글목록
+                                    장애목록
                                 </Link>
                                 <Link
                                     className="dropdown-item"
                                     to="/nwbreakwrite"
                                 >
-                                    글추가
+                                    장애작성
                                 </Link>
                             </div>
                         </li>

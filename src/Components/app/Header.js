@@ -3,7 +3,9 @@ function Header() {
     return (
         <header className="py-4">
             <div className="container text-center">
-                <img alt="" src="/images/airportlogo.png" />
+                <a href="/">
+                    <img alt="" src="/images/airportlogo.png" />
+                </a>
             </div>
         </header>
     );

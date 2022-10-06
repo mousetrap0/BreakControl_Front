@@ -7,9 +7,6 @@ function Home() {
             <div>
                 <HomeChart />
             </div>
-            <div>
-                <BreakChart />
-            </div>
         </div>
     );
 }

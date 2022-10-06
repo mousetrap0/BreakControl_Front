@@ -1,15 +1,17 @@
 import React, { useCallback, useState } from "react";
-import { PieChart, Pie, Sector } from "recharts";
+import { PieChart, Pie, Sector, Tooltip } from "recharts";
 import moment from "moment";
+import { useNavigate } from "react-router-dom";
 
 const today = moment();
 const DayToToday = moment(today).format("DDD");
 
-console.log(typeof aa);
+const DayToAbnomal = 30;
+const DayToNomal = Number(DayToToday) - DayToAbnomal;
 
 const data = [
-    { name: "무중단 운영일", value: 300 },
-    { name: "장애일수", value: 65 },
+    { name: "무중단 운영일", value: DayToNomal },
+    { name: "장애일수", value: DayToAbnomal },
 ];
 
 const renderActiveShape = (props) => {
@@ -70,7 +72,8 @@ const renderActiveShape = (props) => {
                 textAnchor="middle"
                 fill="#0C0C0C"
             >
-                {Math.round((300 / 365) * 10000) / 100}%{/* {payload.name} */}
+                {Math.round((DayToNomal / DayToToday) * 10000) / 100}%
+                {/* {payload.name} */}
             </text>
             {/* onMouse 시 동작 */}
             {/* 그래프 색 */}
@@ -130,12 +133,19 @@ const renderActiveShape = (props) => {
 
 const HomeChart = () => {
     const [activeIndex, setActiveIndex] = useState(0);
+    const navigate = useNavigate();
+
     const onPieEnter = useCallback(
         (_, index) => {
             setActiveIndex(index);
         },
         [setActiveIndex]
     );
+    const onPieClick = (e) => {
+        if (e.name === "장애일수") {
+            navigate(`/nwbreakchart`); // list로 이동
+        }
+    };
 
     return (
         <PieChart width={1100} height={800}>
@@ -150,6 +160,7 @@ const HomeChart = () => {
                 fill="#766C30"
                 dataKey="value"
                 onMouseEnter={onPieEnter}
+                onClick={onPieClick}
             />
         </PieChart>
     );

@@ -20,26 +20,25 @@ import NwBreakDetail from "../nwbreak/NwBreakDetail";
 import NwBreakUpdate from "../nwbreak/NwBreakUpdate";
 import NwBreakAnswer from "../nwbreak/NwBreakAnswer";
 import LineList from "../line/LineList";
+import BreakChart from "../chart/BreakChart";
 
 function Router() {
     return (
         <Routes>
             {/* 홈 */}
             <Route path="/" element={<Home />}></Route>
-
             {/* Bbs 게시판 */}
             <Route path="/bbslist" element={<BbsList />}></Route>
             <Route path="/bbswrite" element={<BbsWrite />}></Route>
             <Route path="/bbsdetail/:seq" element={<BbsDetail />}></Route>
             <Route path="/bbsupdate" element={<BbsUpdate />}></Route>
             <Route path="/bbsanswer/:parentSeq" element={<BbsAnswer />}></Route>
-
             {/* 로그인 */}
             <Route path="/login" element={<Login />}></Route>
             <Route path="/join" element={<Join />}></Route>
             <Route path="/logout" element={<Logout />}></Route>
-
-            {/* 장애게시판 */}
+            {/* 장애게시판 */}{" "}
+            <Route path="/nwbreakchart" element={<BreakChart />}></Route>
             <Route path="/nwbreaklist" element={<NwBreakList />}></Route>
             <Route path="/nwbreakwrite" element={<NwBreakWrite />}></Route>
             <Route
@@ -51,10 +50,8 @@ function Router() {
                 path="/nwbreakanswer/:parentSeq"
                 element={<NwBreakAnswer />}
             ></Route>
-
             {/* 선번장 */}
             <Route path="/linelist" element={<LineList />}></Route>
-
             {/* 지표 */}
             <Route path="/ratewrite" element={<RateWrite />}></Route>
             <Route path="/ratekt" element={<RateKt />}></Route>
