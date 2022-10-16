@@ -7,9 +7,7 @@ function Footer() {
             <div className="container text-center">
                 <ul className="nav justify-content-center mb-3">
                     <li className="nav-item">
-                        <a className="nav-link text-light" href="/">
-                            Top
-                        </a>
+                    <img alt="" src="/images/airportlogo.png" />
                     </li>
                 </ul>
 

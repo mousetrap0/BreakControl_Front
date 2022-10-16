@@ -1,6 +1,8 @@
 header {
-    margin: 0;
+    position: relative;
+    margin-top: -90px; 
     padding: 0;
-    height: 80px;
+    height: 170px;
     width: 100%;
+    background-image: url(/public/images/background.jpg);
 }
