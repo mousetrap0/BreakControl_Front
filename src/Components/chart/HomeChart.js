@@ -84,7 +84,7 @@ const renderActiveShape = (props) => {
                 outerRadius={outerRadius}
                 startAngle={startAngle}
                 endAngle={endAngle}
-                fill="#BD9774"
+                fill="#4682B4"
                 /* {fill} */
             />
             {/* 그래프 밖에 선 색 */}
@@ -95,7 +95,7 @@ const renderActiveShape = (props) => {
                 endAngle={endAngle}
                 innerRadius={outerRadius + 6}
                 outerRadius={outerRadius + 10}
-                fill="#BD9774"
+                fill="#F4A460"
                 /* {fill} */
             />
 
@@ -158,7 +158,7 @@ const HomeChart = () => {
                     cy={230}
                     innerRadius={150}
                     outerRadius={200}
-                    fill="#766C30"
+                    fill="#F4A460"
                     dataKey="value"
                     onMouseEnter={onPieEnter}
                     onClick={onPieClick}
