@@ -9,6 +9,8 @@ const DayToToday = moment(today).format("DDD");
 const DayToAbnomal = 30;
 const DayToNomal = Number(DayToToday) - DayToAbnomal;
 
+const getTime = today.format("YYYY .MM .DD.");
+
 const data = [
     { name: "무중단 운영일", value: DayToNomal },
     { name: "장애일수", value: DayToAbnomal },
@@ -44,13 +46,13 @@ const renderActiveShape = (props) => {
             <text
                 x={cx}
                 y={cy}
-                dx={300}
+                dx={-370}
                 dy={-180}
-                fontSize="22"
+                fontSize="18"
                 textAnchor="middle"
-                fill="#0C0C0C"
+                fill="#6E6E6E"
             >
-                * 기준일 : {today.format("YYYY / MM / DD")}
+                * 기준일 : {getTime}
             </text>
             {/* 원 중심 텍스트 */}
             <text
