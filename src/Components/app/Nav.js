@@ -57,7 +57,7 @@ function Nav() {
                                 aria-haspopup="true"
                                 aria-expanded="false"
                             >
-                                Break 게시판
+                                장애
                             </div>
 
                             <div

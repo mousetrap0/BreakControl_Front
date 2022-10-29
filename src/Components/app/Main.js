@@ -1,10 +1,11 @@
 import React from "react";
 import Router from "../router/Router";
+import "../../css/main.css";
 
 function Main() {
     return (
         <main>
-            <div className="py-3">
+            <div className="py-2">
                 <div className="container">
                     <Router></Router>
                 </div>

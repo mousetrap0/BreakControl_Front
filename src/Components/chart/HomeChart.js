@@ -46,8 +46,8 @@ const renderActiveShape = (props) => {
             <text
                 x={cx}
                 y={cy}
-                dx={-370}
-                dy={-180}
+                dx={-350}
+                dy={-200}
                 fontSize="18"
                 textAnchor="middle"
                 fill="#6E6E6E"
@@ -58,10 +58,11 @@ const renderActiveShape = (props) => {
             <text
                 x={cx}
                 y={cy}
-                dy={-40}
+                dy={-30}
                 fontSize="27"
                 textAnchor="middle"
                 fill="#0C0C0C"
+                fontWeight="bold"
             >
                 무중단 운영 달성도
             </text>
@@ -69,7 +70,7 @@ const renderActiveShape = (props) => {
                 x={cx}
                 y={cy}
                 dx={10}
-                dy={30}
+                dy={20}
                 fontSize="50"
                 textAnchor="middle"
                 fill="#0C0C0C"
@@ -151,13 +152,13 @@ const HomeChart = () => {
 
     return (
         <div className="mb-3 d-flex justify-content-center">
-            <PieChart width={1100} height={500}>
+            <PieChart width={850} height={440}>
                 <Pie
                     activeIndex={activeIndex}
                     activeShape={renderActiveShape}
                     data={data}
-                    cx={550}
-                    cy={230}
+                    cx={450}
+                    cy={225}
                     innerRadius={150}
                     outerRadius={200}
                     fill="#F4A460"
