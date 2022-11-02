@@ -9,6 +9,10 @@ import AuthProvider from "./Components/context/AuthProvider";
 import HttpHeadersProvider from "./Components/context/HttpHeadersProvider";
 import "./css/style.css";
 
+import "bootstrap";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "@fortawesome/fontawesome-free/js/all.js";
+
 function App() {
     return (
         <div>
