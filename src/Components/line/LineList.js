@@ -24,7 +24,7 @@ function LineList() {
     /* [GET /line]: 게시글 목록 */
     const getLineList = async (choice, search, page) => {
         await axios
-            .get("http://localhost:3000/line", {
+            .get("http://192.168.97.7:3000/line", {
                 params: { choice: choice, search: search, page: page },
             })
             .then((resp) => {

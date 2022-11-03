@@ -16,7 +16,7 @@ function BbsDetail() {
 
     const getBbsDetail = async () => {
         await axios
-            .get(`http://localhost:3000/bbs/${seq}`, {
+            .get(`http://192.168.97.7:3000/bbs/${seq}`, {
                 params: { readerId: auth ? auth : "" },
             })
             .then((resp) => {
@@ -33,7 +33,7 @@ function BbsDetail() {
 
     const deleteBbs = async () => {
         await axios
-            .delete(`http://localhost:3000/bbs/${seq}`)
+            .delete(`http://192.168.97.7:3000/bbs/${seq}`)
             .then((resp) => {
                 console.log("[BbsDetail.js] deleteBbs() success :D");
                 console.log(resp.data);

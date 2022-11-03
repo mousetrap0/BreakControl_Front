@@ -80,7 +80,7 @@ const NwBreakWrite = () => {
         console.log(req, "232323");
 
         await axios
-            .post("http://localhost:3000/nwbreak", req, { headers: headers })
+            .post("http://192.168.97.7:3000/nwbreak", req, { headers: headers })
             .then((resp) => {
                 console.log("[NwBreakWrite.js] createNwBreak() success :D");
                 console.log(req);

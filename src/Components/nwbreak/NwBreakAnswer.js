@@ -35,7 +35,7 @@ function NwBreakAnswer() {
         };
 
         await axios
-            .post(`http://localhost:3000/nwbreak/${parentSeq}/answer`, req, {
+            .post(`http://192.168.97.7:3000/nwbreak/${parentSeq}/answer`, req, {
                 headers: headers,
             })
             .then((resp) => {

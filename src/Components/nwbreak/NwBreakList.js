@@ -29,7 +29,7 @@ function NwBreakList() {
     /* [GET /nwbreak]: 게시글 목록 */
     const getNwBreakList = async (choice, search, page) => {
         await axios
-            .get("http://localhost:3000/nwbreak", {
+            .get("http://192.168.97.7:3000/nwbreak", {
                 params: { choice: choice, search: search, page: page },
             })
             .then((resp) => {
@@ -91,7 +91,7 @@ function NwBreakList() {
         CheckedItems.map(async (CheckedItem) => {
             console.log(typeof CheckedItem, "<<<<<<<<<<<");
             await axios
-                .delete(`http://localhost:3000/nwbreak/${CheckedItem}`)
+                .delete(`http://192.168.97.7:3000/nwbreak/${CheckedItem}`)
                 .then((resp) => {
                     console.log("[NWBreakList.js] deletesNwBreak() success :D");
                     console.log(resp.data);

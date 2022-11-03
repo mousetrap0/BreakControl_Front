@@ -18,7 +18,7 @@ function NwBreakDetail() {
 
     const getNwBreakDetail = async () => {
         await axios
-            .get(`http://localhost:3000/nwbreak/${breakId}`, {
+            .get(`http://192.168.97.7:3000/nwbreak/${breakId}`, {
                 params: { readerId: auth ? auth : "" },
             })
             .then((resp) => {
@@ -39,7 +39,7 @@ function NwBreakDetail() {
 
     const deleteNwBreak = async () => {
         await axios
-            .delete(`http://localhost:3000/nwbreak/${breakId}`)
+            .delete(`http://192.168.97.7:3000/nwbreak/${breakId}`)
             .then((resp) => {
                 console.log("[BbsDetail.js] deleteNwBreak() success :D");
                 console.log(resp.data);

@@ -1,8 +1,10 @@
-header {
-    position: relative;
-    margin-top: -130px;
-    padding: 0;
-    height: 170px;
-    width: 100%;
-    background-image: url(/public/images/background.jpg);
+@media all {
+    header {
+        position: relative;
+        margin-top: -130px;
+        padding: 0;
+        height: 170px;
+        width: 100%;
+        background-image: url(/public/images/background.jpg);
+    }
 }

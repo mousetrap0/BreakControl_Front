@@ -31,7 +31,7 @@ function Login() {
         };
 
         await axios
-            .post("http://localhost:3000/user/login", req)
+            .post("http://192.168.97.7:3000/user/login", req)
             .then((resp) => {
                 console.log("[Login.js] login() success :D");
                 console.log(resp.data);

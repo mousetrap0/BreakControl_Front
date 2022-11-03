@@ -83,7 +83,7 @@ function NwBreakUpdate() {
         };
 
         await axios
-            .patch(`http://localhost:3000/nwBreak/${nwBreak.breakId}`, req, {
+            .patch(`http://192.168.97.7:3000/nwBreak/${nwBreak.breakId}`, req, {
                 headers: headers,
             })
             .then((resp) => {
